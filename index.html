@@ -3,495 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Up Games By AlipzzyOfficiaL</title>
+    <title>Payment AlipzzyOfficiaL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        .container {
-            max-width: 600px;
+            background-color: #1a202c;
+            background-image: linear-gradient(135deg, #1f2735 10%, #151a23 90%);
         }
         .card {
-            background-color: #1e1e1e;
-            border: 1px solid #333;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: #2d3748; 
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.5); 
+            animation: pulse-pink 2s infinite ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 35px rgba(255, 105, 180, 0.7);
         }
-        .btn-primary {
-            background-color: #4a90e2;
-            color: white;
-            transition: background-color 0.2s;
+        .copy-button, .contact-button, .back-button {
+            transition: all 0.2s ease-in-out;
         }
-        .btn-primary:hover {
-            background-color: #357bd8;
+
+        .copy-button:hover, .contact-button:hover, .back-button:hover {
+            transform: scale(1.05);
         }
-        .btn-secondary {
-            background-color: #333;
-            color: #fff;
-        }
-        .input-group {
-            background-color: #2c2c2c;
-            border-color: #444;
-            color: white;
-        }
-        .input-group::placeholder {
-            color: #999;
-        }
-        /* Mobile menu specific styles */
-        .drawer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .drawer-open .drawer-overlay {
-            opacity: 1;
-            visibility: visible;
-        }
-        .drawer-menu {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 250px;
-            height: 100%;
-            background-color: #1e1e1e;
-            z-index: 50;
-            transition: left 0.3s ease;
-        }
-        .drawer-open .drawer-menu {
-            left: 0;
-        }
-        .product-item {
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .product-item.active {
-            background-color: #353535;
-            border-color: #4a90e2;
+        @keyframes pulse-pink {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+<body class="min-h-screen flex items-center justify-center p-4 text-white">
 
-    <!-- Mobile Menu Drawer -->
-    <div id="drawer-overlay" class="drawer-overlay" onclick="toggleDrawer()"></div>
-    <div id="drawer-menu" class="drawer-menu shadow-xl">
-        <div class="p-6">
-            <h2 class="text-2xl font-bold text-white mb-6">Menu</h2>
-            <ul class="space-y-4">
-                <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors" onclick="showContactPage()">Hubungi CS</a></li>
-                <li><a href="#" class="text-lg text-gray-300 hover:text-white transition-colors" onclick="showAboutPage()">About</a></li>
-            </ul>
+    <div class="w-full max-w-md mx-auto p-8 rounded-2xl text-center card">
+
+        <!-- Main page content, visible by default -->
+        <div id="main-page">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8">Payment AlipzzyOfficiaL</h1>
+
+            <div class="grid gap-6">
+                <!-- DANA Option -->
+                <button onclick="showPage('dana')" class="bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:scale-105 transition-transform duration-300">
+                    <img src="https://files.catbox.moe/n5qry8.jpg" alt="Logo DANA" class="mx-auto h-20 mb-4 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x40/4d94ff/ffffff?text=DANA';">
+                    <h2 class="text-2xl font-semibold text-pink-400 mb-2">DANA</h2>
+                    <p class="text-sm text-gray-400">Nomor Dana: 081287845850</p>
+                </button>
+
+                <!-- GOPAY Option -->
+                <button onclick="showPage('gopay')" class="bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:scale-105 transition-transform duration-300">
+                    <img src="https://files.catbox.moe/mh3o2g.jpg" alt="Logo GOPAY" class="mx-auto h-20 mb-4 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x40/00a0e9/ffffff?text=GOPAY';">
+                    <h2 class="text-2xl font-semibold text-pink-400 mb-2">GOPAY</h2>
+                    <p class="text-sm text-gray-400">Nomor Gopay: 081399649577</p>
+                </button>
+
+                <!-- QRIS Option -->
+                <button onclick="showPage('qris')" class="bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:scale-105 transition-transform duration-300">
+                    <img src="https://files.catbox.moe/1y805e.jpg" alt="Logo QRIS" class="mx-auto h-20 mb-4 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x40/444444/ffffff?text=QRIS';">
+                    <h2 class="text-2xl font-semibold text-pink-400 mb-2">QRIS</h2>
+                    <p class="text-sm font-bold text-gray-400">Belum Tersedia</p>
+                </button>
+
+            </div>
         </div>
+
+        <!-- DANA Page content, hidden by default -->
+        <div id="dana-page" class="hidden">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8">Pembayaran DANA</h1>
+            <img src="https://files.catbox.moe/n5qry8.jpg" alt="Logo DANA" class="mx-auto h-20 mb-6 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/4d94ff/ffffff?text=DANA';">
+            <div class="flex flex-col items-center justify-center flex-wrap gap-2">
+                <span id="dana-number" class="text-lg font-mono tracking-wide text-gray-200">081287845850</span>
+                <button onclick="copyToClipboard('dana-number')" class="copy-button bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-4 rounded-full text-sm">
+                    Salin
+                </button>
+                <p class="text-sm text-gray-400 mt-4">Wajib Ss Bukti Transfer Nya ke Owner</p>
+            </div>
+            <a href="https://t.me/AlipzzyOfficiaL" target="_blank" class="contact-button mt-8 inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg">
+                Sudah Bayar? Hubungi Owner
+            </a>
+            <button onclick="showPage('main')" class="back-button mt-6 inline-block text-gray-400 hover:text-white transition-colors duration-300">
+                Kembali
+            </button>
+        </div>
+
+        <!-- GOPAY Page content, hidden by default -->
+        <div id="gopay-page" class="hidden">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8">Pembayaran GOPAY</h1>
+            <img src="https://files.catbox.moe/mh3o2g.jpg" alt="Logo GOPAY" class="mx-auto h-20 mb-6 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/00a0e9/ffffff?text=GOPAY';">
+            <div class="flex flex-col items-center justify-center flex-wrap gap-2">
+                <span id="gopay-number" class="text-lg font-mono tracking-wide text-gray-200">081399649577</span>
+                <button onclick="copyToClipboard('gopay-number')" class="copy-button bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-4 rounded-full text-sm">
+                    Salin
+                </button>
+                <p class="text-sm text-gray-400 mt-4">Wajib Ss Bukti Transfer Nya Ke Owner</p>
+            </div>
+            <a href="https://t.me/AlipzzyOfficiaL" target="_blank" class="contact-button mt-8 inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg">
+                Sudah Bayar? Hubungi Owner
+            </a>
+            <button onclick="showPage('main')" class="back-button mt-6 inline-block text-gray-400 hover:text-white transition-colors duration-300">
+                Kembali
+            </button>
+        </div>
+
+        <!-- QRIS Page content, hidden by default -->
+        <div id="qris-page" class="hidden">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8">Pembayaran QRIS</h1>
+            <img src="https://files.catbox.moe/1y805e.jpg" alt="Logo QRIS" class="mx-auto h-20 mb-6 rounded-lg object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x60/444444/ffffff?text=QRIS';">
+            <p class="text-lg font-bold text-gray-400 mb-2">Belum Tersedia</p>
+            <p class="text-sm text-gray-400 mt-4">Wajib Ss Bukti Transfer Nya Ke Owner</p>
+            <a href="https://t.me/AlipzzyOfficiaL" target="_blank" class="contact-button mt-8 inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg">
+                Sudah Bayar? Hubungi Owner
+            </a>
+            <button onclick="showPage('main')" class="back-button mt-6 inline-block text-gray-400 hover:text-white transition-colors duration-300">
+                Kembali
+            </button>
+        </div>
+
+        <!-- Feedback for copy action -->
+        <div id="copy-feedback" class="mt-6 text-sm text-center font-semibold text-green-400 opacity-0 transition-opacity duration-300">
+            Nomor berhasil disalin!
+        </div>
+
     </div>
 
-    <!-- Header -->
-    <header class="bg-gray-800 p-4 shadow-md sticky top-0 z-30">
-        <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
-            <button id="menu-btn" class="text-white text-2xl md:hidden" onclick="toggleDrawer()">
-                <i class="fas fa-bars"></i>
-            </button>
-            <h1 class="text-xl font-bold text-center flex-grow">Top Up Games By AlipzzyOfficiaL</h1>
-            <div class="w-6 md:hidden"></div> <!-- Spacer for alignment on mobile -->
-        </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main id="app" class="container mx-auto p-4 flex-grow">
-        <!-- Content will be rendered here by JavaScript -->
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-center p-4 mt-8">
-        <p class="text-gray-400 text-sm">&copy; 2024 Top Up Games By AlipzzyOfficiaL</p>
-    </footer>
-
     <script>
-        // Data produk dan game
-        const games = [
-            {
-                id: 'ff',
-                name: 'Free Fire',
-                logo: 'https://files.catbox.moe/5jdbig.jpg',
-                products: [
-                    { name: 'Membership Mingguan', price: 'Rp28.000', label: 'Membership Mingguan' },
-                    { name: 'Membership Bulanan', price: 'Rp80.000', label: 'Membership Bulanan' },
-                    { name: 'BP Card', price: 'Rp43.000', label: 'BP Card' },
-                    { name: '💎 50 Diamond', price: 'Rp8.000', label: '50 Diamond' },
-                    { name: '💎 70 Diamond', price: 'Rp9.000', label: '70 Diamond' },
-                    { name: '💎 140 Diamond', price: 'Rp18.000', label: '140 Diamond' },
-                    { name: '💎 355 Diamond', price: 'Rp45.000', label: '355 Diamond' },
-                    { name: '💎 720 Diamond', price: 'Rp90.000', label: '720 Diamond' },
-                    { name: '💎 1050 Diamond', price: 'Rp133.000', label: '1050 Diamond' }
-                ],
-                inputLabel: 'Masukkan Game ID'
-            },
-            {
-                id: 'ml',
-                name: 'Mobile Legend',
-                logo: 'https://files.catbox.moe/atj5sa.jpg',
-                products: [
-                    { name: 'Weakly Diamond Pass', price: 'Rp28.000', label: 'Weakly Diamond Pass' },
-                    { name: 'Weakly Diamond Pass x2', price: 'Rp58.000', label: 'Weakly Diamond Pass x2' },
-                    { name: 'Weakly Diamond Pass x3', price: 'Rp87.000', label: 'Weakly Diamond Pass x3' },
-                    { name: '💎 50 Diamond', price: 'Rp14.000', label: '50 Diamond' },
-                    { name: '💎 80 Diamond', price: 'Rp23.000', label: '80 Diamond' },
-                    { name: '💎 100 Diamond', price: 'Rp28.000', label: '100 Diamond' },
-                    { name: '💎 148 Diamond', price: 'Rp40.000', label: '148 Diamond' },
-                    { name: '💎 240 Diamond', price: 'Rp64.000', label: '240 Diamond' },
-                    { name: '💎 300 Diamond', price: 'Rp78.000', label: '300 Diamond' },
-                    { name: '💎 370 Diamond', price: 'Rp98.000', label: '370 Diamond' },
-                    { name: '💎 429 Diamond', price: 'Rp120.000', label: '429 Diamond' },
-                    { name: '💎 518 Diamond', price: 'Rp138.000', label: '518 Diamond' },
-                    { name: '💎 600 Diamond', price: 'Rp160.000', label: '600 Diamond' },
-                    { name: '💎 750 Diamond', price: 'Rp200.000', label: '750 Diamond' },
-                    { name: '💎 875 Diamond', price: 'Rp230.000', label: '875 Diamond' },
-                    { name: '💎 1045 Diamond', price: 'Rp265.000', label: '1045 Diamond' },
-                    { name: '💎 1506 Diamond', price: 'Rp390.000', label: '1506 Diamond' }
-                ],
-                inputLabel: 'Masukkan ID & Server ID',
-                inputPlaceholder: 'Contoh: 12345678 (1234)'
-            },
-            {
-                id: 'roblox',
-                name: 'Roblox',
-                logo: 'https://files.catbox.moe/xpjea7.jpg',
-                products: [
-                    { name: 'Via Login - 80 Robux', price: 'Rp19.000', label: 'Via Login - 80 Robux' },
-                    { name: 'Via Login - 400 Robux', price: 'Rp98.000', label: 'Via Login - 400 Robux' },
-                    { name: 'Via Login - 800 Robux', price: 'Rp200.000', label: 'Via Login - 800 Robux' },
-                    { name: 'Via Robux 5-7 Hari - 100 Robux', price: 'Rp12.000', label: 'Via Robux 5-7 Hari - 100 Robux' },
-                    { name: 'Via Robux 5-7 Hari - 200 Robux', price: 'Rp24.000', label: 'Via Robux 5-7 Hari - 200 Robux' },
-                    { name: 'Via Robux 5-7 Hari - 300 Robux', price: 'Rp36.000', label: 'Via Robux 5-7 Hari - 300 Robux' },
-                    { name: 'Via Robux 5-7 Hari - 400 Robux', price: 'Rp48.000', label: 'Via Robux 5-7 Hari - 400 Robux' },
-                    { name: 'Via Robux 5-7 Hari - 500 Robux', price: 'Rp60.000', label: 'Via Robux 5-7 Hari - 500 Robux' }
-                ],
-                inputLabel: 'Masukkan Username Roblox'
-            },
-            {
-                id: 'pubg',
-                name: 'PUBG Mobile',
-                logo: 'https://files.catbox.moe/ta4alo.jpg',
-                products: [
-                    { name: 'Elite Pass Global', price: 'Rp163.000', label: 'Elite Pass Global' },
-                    { name: 'Elite Pass Pluss Global', price: 'Rp440.000', label: 'Elite Pass Pluss Global' },
-                    { name: '60 UC - Indo', price: 'Rp15.000', label: '60 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' },
-                    { name: '325 UC - Indo', price: 'Rp75.000', label: '325 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' },
-                    { name: '660 UC - Indo', price: 'Rp146.000', label: '660 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' },
-                    { name: '1800 UC - Indo', price: 'Rp365.000', label: '1800 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' },
-                    { name: '3850 UC - Indo', price: 'Rp720.000', label: '3850 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' },
-                    { name: '8100 UC - Indo', price: 'Rp1.480.000', label: '8100 UC - Indo', icon: 'https://files.catbox.moe/vhamf2.png' }
-                ],
-                inputLabel: 'Masukkan Game ID'
-            },
-            {
-                id: 'bs',
-                name: 'Blood Strike',
-                logo: 'https://files.catbox.moe/62vay9.jpg',
-                products: [
-                    { name: 'Ultra Skin Lucky Chest', price: 'Rp7.000', label: 'Ultra Skin Lucky Chest' },
-                    { name: 'Lucky Bag Week', price: 'Rp14.000', label: 'Lucky Bag Week' },
-                    { name: 'Level Up Pass', price: 'Rp26.000', label: 'Level Up Pass' },
-                    { name: 'Strike Pass Elite', price: 'Rp52.000', label: 'Strike Pass Elite' },
-                    { name: 'Strike Pass Premium', price: 'Rp117.000', label: 'Strike Pass Premium' },
-                    { name: '100 + 5 Gold', price: 'Rp11.000', label: '100 + 5 Gold' },
-                    { name: '300 + 20 Gold', price: 'Rp33.000', label: '300 + 20 Gold' },
-                    { name: '500 + 40 Gold', price: 'Rp55.000', label: '500 + 40 Gold' },
-                    { name: '1000 + 100 Gold', price: 'Rp110.000', label: '1000 + 100 Gold' },
-                    { name: '2000 + 200 Gold', price: 'Rp212.000', label: '2000 + 200 Gold' },
-                    { name: '5000 + 800 Gold', price: 'Rp530.000', label: '5000 + 800 Gold' }
-                ],
-                inputLabel: 'Masukkan Game ID'
-            },
-            {
-                id: 'supersus',
-                name: 'Super SUS',
-                logo: 'https://files.catbox.moe/3po9bv.jpg',
-                products: [
-                    { name: 'Weakly Card', price: 'Rp12.000', label: 'Weakly Card' },
-                    { name: 'Super Pass', price: 'Rp54.000', label: 'Super Pass' },
-                    { name: 'Super Pass Bundle', price: 'Rp110.000', label: 'Super Pass Bundle' },
-                    { name: 'Monthly Card', price: 'Rp138.000', label: 'Monthly Card' },
-                    { name: 'Super VIP Card', price: 'Rp155.000', label: 'Super VIP Card' },
-                    { name: '100 Goldstar', price: 'Rp11.000', label: '100 Goldstar' },
-                    { name: '100 + 28 Goldstar', price: 'Rp12.000', label: '100 + 28 Goldstar' },
-                    { name: '310 Goldstar', price: 'Rp32.000', label: '310 Goldstar' },
-                    { name: '520 Goldstar', price: 'Rp54.000', label: '520 Goldstar' },
-                    { name: '1060 Goldstar', price: 'Rp110.000', label: '1060 Goldstar' },
-                    { name: '2180 Goldstar', price: 'Rp220.000', label: '2180 Goldstar' },
-                    { name: '5600 Goldstar', price: 'Rp540.000', label: '5600 Goldstar' }
-                ],
-                inputLabel: 'Masukkan Game ID'
-            }
-        ];
-
-        // State aplikasi
-        let state = {
-            view: 'home',
-            selectedGame: null,
-            selectedProduct: null
-        };
-        
-        const appElement = document.getElementById('app');
-
-        // Fungsi untuk meng-render halaman utama
-        function renderHomePage() {
-            appElement.innerHTML = `
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl font-semibold">Pilih Game Anda</h2>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    ${games.map(game => `
-                        <div class="card p-4 rounded-xl text-center cursor-pointer flex flex-col items-center justify-center" onclick="showGamePage('${game.id}')">
-                            <img src="${game.logo}" alt="${game.name} Logo" class="w-20 h-20 mb-2 rounded-lg object-contain">
-                            <span class="font-medium text-lg">${game.name}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
+   
+        function showPage(pageId) {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('dana-page').classList.add('hidden');
+            document.getElementById('gopay-page').classList.add('hidden');
+            document.getElementById('qris-page').classList.add('hidden');
+            document.getElementById(pageId + '-page').classList.remove('hidden');
         }
 
-        // Fungsi untuk meng-render halaman produk game
-        function renderGamePage(gameId) {
-            state.selectedGame = games.find(g => g.id === gameId);
-            state.selectedProduct = null;
-            if (!state.selectedGame) {
-                renderHomePage();
-                return;
-            }
-
-            const isMobileLegend = state.selectedGame.id === 'ml';
-            const isRoblox = state.selectedGame.id === 'roblox';
-            const isPubg = state.selectedGame.id === 'pubg';
-
-            appElement.innerHTML = `
-                <div class="mb-4">
-                    <button class="flex items-center text-gray-400 hover:text-white transition-colors" onclick="showHomePage()">
-                        <i class="fas fa-chevron-left mr-2"></i> Kembali
-                    </button>
-                </div>
-                <div class="text-center mb-6">
-                    <img src="${state.selectedGame.logo}" alt="${state.selectedGame.name} Logo" class="w-24 h-24 rounded-lg mx-auto mb-4 object-contain">
-                    <h2 class="text-2xl font-bold">${state.selectedGame.name}</h2>
-                </div>
-                
-                <div class="mb-6">
-                    <label for="game-input" class="block text-gray-400 mb-2">${state.selectedGame.inputLabel}</label>
-                    <input type="text" id="game-input" placeholder="${state.selectedGame.inputPlaceholder || 'ID/Username Game'}" class="input-group w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#4a90e2]">
-                </div>
-
-                ${isMobileLegend ? `
-                <div class="mb-6">
-                    <label for="server-input" class="block text-gray-400 mb-2">ID Server</label>
-                    <input type="text" id="server-input" placeholder="Server ID" class="input-group w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#4a90e2]">
-                </div>
-                ` : ''}
-
-                <div class="mb-6">
-                    <h3 class="text-lg font-semibold mb-3">Pilih Produk</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        ${state.selectedGame.products.map((product, index) => `
-                            <div id="product-${index}" class="product-item card p-4 rounded-xl border-2 border-transparent" onclick="selectProduct(${index})">
-                                <div class="flex items-center space-x-2">
-                                    ${product.icon ? `<img src="${product.icon}" alt="UC" class="w-6 h-6 object-contain">` : ''}
-                                    <span class="text-lg font-medium">${product.name}</span>
-                                </div>
-                                <span class="block text-xl font-bold mt-2">${product.price}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <div id="order-section" class="hidden fixed bottom-0 left-0 right-0 p-4 bg-gray-800 border-t border-gray-700 md:relative md:bg-transparent md:border-t-0 md:p-0">
-                    <button class="btn-primary w-full p-4 rounded-lg text-lg font-semibold shadow-lg" onclick="placeOrder()">Order</button>
-                </div>
-
-                ${isRoblox ? `
-                <div class="mt-8 text-sm text-gray-400 p-4 bg-gray-800 rounded-lg">
-                    <p class="font-bold">NOTE:</p>
-                    <p>Untuk Via Robux 5-7 Hari Menggunakan Gamepass, Wajib Mengatur Robux Sesuai Arahan Admin.</p>
-                </div>
-                ` : ''}
-
-                <div id="message-box" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden p-6 bg-green-700 text-white rounded-lg shadow-xl text-center z-50">
-                    Order Berhasil! Anda akan diarahkan ke Telegram.
-                </div>
-            `;
-        }
-
-        // Fungsi untuk meng-render halaman "Hubungi CS"
-        function renderContactPage() {
-            appElement.innerHTML = `
-                <div class="mb-4">
-                    <button class="flex items-center text-gray-400 hover:text-white transition-colors" onclick="showHomePage()">
-                        <i class="fas fa-chevron-left mr-2"></i> Kembali
-                    </button>
-                </div>
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-bold">Hubungi CS</h2>
-                    <p class="text-gray-400">Silakan hubungi kami melalui salah satu kontak di bawah ini.</p>
-                </div>
-                <div class="space-y-4">
-                    <a href="https://wa.me/6281399649577" target="_blank" class="card block p-4 rounded-xl text-center hover:bg-gray-700 transition-colors">
-                        <i class="fab fa-whatsapp text-4xl text-green-500 mb-2"></i>
-                        <h3 class="text-xl font-semibold">WhatsApp</h3>
-                        <p class="text-gray-400">Klik untuk chat langsung</p>
-                    </a>
-                    <a href="https://t.me/AlipzzyOfficiaL" target="_blank" class="card block p-4 rounded-xl text-center hover:bg-gray-700 transition-colors">
-                        <i class="fab fa-telegram text-4xl text-blue-400 mb-2"></i>
-                        <h3 class="text-xl font-semibold">Telegram</h3>
-                        <p class="text-gray-400">Klik untuk chat langsung</p>
-                    </a>
-                </div>
-            `;
-        }
-
-        // Fungsi untuk meng-render halaman "About"
-        function renderAboutPage() {
-            appElement.innerHTML = `
-                <div class="mb-4">
-                    <button class="flex items-center text-gray-400 hover:text-white transition-colors" onclick="showHomePage()">
-                        <i class="fas fa-chevron-left mr-2"></i> Kembali
-                    </button>
-                </div>
-                <div class="card p-6 rounded-xl">
-                    <h2 class="text-2xl font-bold mb-4">About</h2>
-                    <p class="text-gray-300 mb-4">Hello everyone, I am AlipzzyOfficiaL, the Developer of this Game Top Up Website, Actually I just made this website on a whim. But if the Website I Made Helps or is useful to you, please use it 😍, Sorry I'm still a beginner I can't develop an automatic buy website like other websites, It's also still learning 😀, Happy Shopping 🛍️</p>
-                    <hr class="border-gray-600 my-4">
-                    <h3 class="text-xl font-semibold mb-2">Thanks To</h3>
-                    <ul class="list-disc list-inside text-gray-300">
-                        <li>AlipzzyOfficiaL ( Developer )</li>
-                        <li>My Buyer ( Support )</li>
-                        <li>My Partner ( Support )</li>
-                    </ul>
-                </div>
-            `;
-        }
-        
-        // Fungsi navigasi
-        function showHomePage() {
-            state.view = 'home';
-            state.selectedGame = null;
-            state.selectedProduct = null;
-            renderHomePage();
-            closeDrawer();
-        }
-
-        function showGamePage(gameId) {
-            state.view = 'game';
-            state.selectedGame = games.find(g => g.id === gameId);
-            renderGamePage(gameId);
-        }
-
-        function showContactPage() {
-            state.view = 'contact';
-            renderContactPage();
-            closeDrawer();
-        }
-
-        function showAboutPage() {
-            state.view = 'about';
-            renderAboutPage();
-            closeDrawer();
-        }
-
-        function selectProduct(index) {
-            // Hilangkan highlight dari semua produk
-            document.querySelectorAll('.product-item').forEach(item => {
-                item.classList.remove('active');
-                item.classList.remove('border-[#4a90e2]');
-            });
-            // Highlight produk yang dipilih
-            const selectedItem = document.getElementById(`product-${index}`);
-            selectedItem.classList.add('active');
-            selectedItem.classList.add('border-[#4a90e2]');
-
-            state.selectedProduct = state.selectedGame.products[index];
-            document.getElementById('order-section').classList.remove('hidden');
-        }
-
-        function placeOrder() {
-            const gameInput = document.getElementById('game-input');
-            const gameId = gameInput.value.trim();
-            
-            let message = '';
-            let isIdValid = false;
-
-            if (!gameId) {
-                // Tampilkan pesan error jika ID kosong
-                alertMessage('ID/Username tidak boleh kosong!', 'bg-red-700');
-                return;
-            }
-
-            if (state.selectedGame.id === 'ml') {
-                const serverInput = document.getElementById('server-input');
-                const serverId = serverInput.value.trim();
-                if (!serverId) {
-                    alertMessage('ID Server tidak boleh kosong!', 'bg-red-700');
-                    return;
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const textToCopy = element.innerText;
+                const tempInput = document.createElement('textarea');
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');
+                    showFeedback('Nomor berhasil disalin!');
+                } catch (err) {
+                    showFeedback('Gagal menyalin. Silakan salin manual.');
                 }
-                message = `Hallo Min ingin Beli "${state.selectedProduct.label}" dan ini ID & Server Game Saya: ${gameId} (${serverId})`;
-                isIdValid = true;
-            } else if (state.selectedGame.id === 'roblox') {
-                message = `Hallo Min ingin Beli "${state.selectedProduct.label}" dan ini Username Roblox Saya: ${gameId}`;
-                isIdValid = true;
-            } else {
-                message = `Hallo Min ingin Beli "${state.selectedProduct.label}" dan ini ID/Username Game Saya: ${gameId}`;
-                isIdValid = true;
-            }
-
-            if (isIdValid) {
-                const encodedMessage = encodeURIComponent(message);
-                const telegramUrl = `https://t.me/AlipzzyOfficiaL?text=${encodedMessage}`;
-                alertMessage('Order berhasil! Anda akan diarahkan ke Telegram.', 'bg-green-700');
-                setTimeout(() => {
-                    window.open(telegramUrl, '_blank');
-                }, 1000);
+                document.body.removeChild(tempInput);
             }
         }
-        
-        // Fungsi untuk menampilkan pesan (pengganti alert)
-        function alertMessage(message, colorClass) {
-            const msgBox = document.getElementById('message-box');
-            msgBox.textContent = message;
-            msgBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 rounded-lg shadow-xl text-center z-50 ${colorClass}`;
-            msgBox.style.display = 'block';
+
+        function showFeedback(message) {
+            const feedbackDiv = document.getElementById('copy-feedback');
+            feedbackDiv.innerText = message;
+            feedbackDiv.classList.remove('opacity-0');
+            feedbackDiv.classList.add('opacity-100');
+
             setTimeout(() => {
-                msgBox.style.display = 'none';
-            }, 3000);
+                feedbackDiv.classList.remove('opacity-100');
+                feedbackDiv.classList.add('opacity-0');
+            }, 2000);
         }
-
-        // Fungsi untuk toggle menu samping
-        function toggleDrawer() {
-            const drawerMenu = document.getElementById('drawer-menu');
-            const drawerOverlay = document.getElementById('drawer-overlay');
-            const body = document.body;
-            body.classList.toggle('drawer-open');
-        }
-        
-        function closeDrawer() {
-            const body = document.body;
-            body.classList.remove('drawer-open');
-        }
-
-        // Inisialisasi halaman
-        window.onload = function() {
-            showHomePage();
-        };
     </script>
 </body>
-</html>
+                </html>
